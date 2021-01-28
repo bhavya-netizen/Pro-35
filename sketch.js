@@ -5,10 +5,12 @@ var database, height;
 
 function preload(){
   backgroundImage = loadImage("cityImage.png");
-  balloonImage1 = loadAnimation("HotAirBallon-01.png");
+  balloonImage1 = loadImage("HotAirBallon-01.png");
   
-  balloonImage2 = loadAnimation("HotAirBallon-01.png","HotAirBallon-02.png",
-  "HotAirBallon-03.png");
+  balloonImage2 = loadAnimation("HotAirBallon-01.png","HotAirBallon-01.png", "HotAirBallon-01.png",
+  "HotAirBallon-02.png", "HotAirBallon-02.png", "HotAirBallon-02.png", "HotAirBallon-03.png", "HotAirBallon-03.png",
+  "HotAirBallon-03.png", "HotAirBallon-03.png");
+  
 }
 
 function setup() {
@@ -30,22 +32,22 @@ function draw() {
   
 
   if(keyDown(LEFT_ARROW)){
-    updateHeight(-10,0);
+    balloon.x = balloon.x - 10;
     balloon.addAnimation("hotAirBalloon", balloonImage2);
   }
   else if(keyDown(RIGHT_ARROW)){
-    updateHeight(10,0);
+    balloon.x = balloon.x + 10;
     balloon.addAnimation("hotAirBalloon", balloonImage2);
   }
   else if(keyDown(UP_ARROW)){
-    updateHeight(0,-10);
+    balloon.y = balloon.y - 10;
     balloon.addAnimation("hotAirBalloon", balloonImage2);
-    balloon.scale = balloon.scale - 0.005;
+    balloon.scale = balloon.scale - 0.01;
   }
   else if(keyDown(DOWN_ARROW)){
-    updateHeight(0,10);
+    balloon.y = balloon.y + 10;
     balloon.addAnimation("hotAirBalloon", balloonImage2);
-    balloon.scale = balloon.scale + 0.005;
+    balloon.scale = balloon.scale + 0.01;
   }
 
 
